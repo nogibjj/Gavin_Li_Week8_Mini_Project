@@ -18,6 +18,7 @@ serve:
 format:
 	@echo "Formatting with cargo"
 	#./format.sh
+	black *.py 
 	cd desc-stat && cargo fmt --
 
 lint:
@@ -25,10 +26,12 @@ lint:
 	@rustup component add clippy 2> /dev/null
 	# ./lint.sh
 	cd desc-stat && cargo clippy --all-targets --all-features -- -D warnings
+	pylint --disable=R,C --ignore-patterns=test_.*?py *.py
 
 test:
 	@echo "Testing with cargo"
 	# ./test.sh
+	python -m pytest -vv --cov=main test_*.py
 	cd desc-stat && cargo test
 
 check-gpu-linux:
