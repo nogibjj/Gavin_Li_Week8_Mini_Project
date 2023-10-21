@@ -1,0 +1,17 @@
+#devops
+black
+click
+pytest
+pytest-cov
+pylint
+boto3
+
+#web
+fastapi
+uvicorn
+
+## data science
+numpy
+pandas
+matplotlib
+seaborn
