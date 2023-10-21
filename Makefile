@@ -1,4 +1,6 @@
 install:
+	pip install --upgrade pip &&\
+		pip install -r requirements.txt
 	cargo install mdbook
 	#install node
 	#curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash - &&\
@@ -14,17 +16,20 @@ serve:
 	mdbook serve -p 8000 -n 127.0.0.1 data-eng-rust-tutorial 
 
 format:
-	@echo "Formatting all projects with cargo"
-	./format.sh
+	@echo "Formatting with cargo"
+	#./format.sh
+	cd desc-stat && cargo fmt --
 
 lint:
-	@echo "Linting all projects with cargo"
+	@echo "Linting with cargo"
 	@rustup component add clippy 2> /dev/null
-	./lint.sh
+	# ./lint.sh
+	cd desc-stat && cargo clippy --all-targets --all-features -- -D warnings
 
 test:
-	@echo "Testing all projects with cargo"
-	./test.sh
+	@echo "Testing with cargo"
+	# ./test.sh
+	cd desc-stat && cargo test
 
 check-gpu-linux:
 	sudo lshw -C display
