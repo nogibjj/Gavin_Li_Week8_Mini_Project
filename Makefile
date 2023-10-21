@@ -1,6 +1,9 @@
 install:
 	pip install --upgrade pip &&\
 		pip install -r requirements.txt
+	source /home/codespace/venv/bin/activate
+	#append it to bash so every shell launches with it 
+	echo 'source /home/codespace/venv/bin/activate' >> ~/.bashrc
 	cargo install mdbook
 	#install node
 	#curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash - &&\
