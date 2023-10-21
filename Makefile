@@ -1,9 +1,9 @@
 install:
-	pip install --upgrade pip &&\
-		pip install -r requirements.txt
-	source /home/codespace/venv/bin/activate
+	# source /home/codespace/venv/bin/activate
+	pip3 install --upgrade pip3 &&\
+		pip3 install -r requirements.txt
 	#append it to bash so every shell launches with it 
-	echo 'source /home/codespace/venv/bin/activate' >> ~/.bashrc
+	# echo 'source /home/codespace/venv/bin/activate' >> ~/.bashrc
 	cargo install mdbook
 	#install node
 	#curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash - &&\
@@ -22,20 +22,20 @@ format:
 	@echo "Formatting with cargo"
 	#./format.sh
 	black *.py 
-	cd desc-stat && cargo fmt --
+	cd desc-stat && cargo fmt --quiet
 
 lint:
 	@echo "Linting with cargo"
 	@rustup component add clippy 2> /dev/null
 	# ./lint.sh
-	cd desc-stat && cargo clippy --all-targets --all-features -- -D warnings
+	cd desc-stat && cargo clippy --all-targets --all-features --quiet -D warnings
 	pylint --disable=R,C --ignore-patterns=test_.*?py *.py
 
 test:
 	@echo "Testing with cargo"
 	# ./test.sh
 	python -m pytest -vv --cov=main test_*.py
-	cd desc-stat && cargo test
+	cd desc-stat && cargo test --quiet
 
 # check-gpu-linux:
 # 	sudo lshw -C display
