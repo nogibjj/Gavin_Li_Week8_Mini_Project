@@ -26,6 +26,8 @@ The purpose of this project is to translate a python data processing script into
 |CPU Usage | 100% | 0% |
 | Memory Usage | 32.5% | 35.74% |
 
+As shown in the table, rust takes less time and less CPU usage to perform the same task than python does, while memory usage is about the same.
+
 ## References
 
 * [Professor Noah's rust data engineering repo](https://github.com/nogibjj/rust-data-engineering)
