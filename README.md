@@ -18,9 +18,9 @@ The purpose of this project is to translate a python data processing script into
 
 || Python | Rust |
 |---| --- | --- |
-| Time elapsed | | |
-|CPU Usage | | |
-| Memory Usage | | |
+| Time elapsed | | 11.32 ms |
+|CPU Usage | | 8% |
+| Memory Usage | | 29.74% |
 
 ## References
 
