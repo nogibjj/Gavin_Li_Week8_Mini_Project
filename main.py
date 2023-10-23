@@ -18,11 +18,11 @@ def main():
     # print(test.loc["count", "PassengerId"])
     start_time = time.time()
     df = pd.read_csv("./dataset/train.csv")
-    print(f"Mean of Survived column (survival rate) is: {df["Survived"].mean()}")
+    print(f"Mean of Survived column (survival rate) is: {df['Survived'].mean()}")
     end_time = time.time()
-    print(f"Time used: {end_time - time: /4f} seconds")
+    print(f"Time used: {end_time - start_time: 4f} seconds")
     print(f"CPU usage: {psutil.cpu_percent()}")
-    print(f"CPU usage: {psutil.virtual_memory()}")
+    print(f"memory usage: {psutil.virtual_memory().percent}")
     return 0
 
 
