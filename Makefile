@@ -7,7 +7,7 @@ rust-version:
 	clippy-driver --version		#rust linter
 
 format:
-	cargo fmt --quiet
+	cd desc-stat && cargo fmt --quiet
 
 install:
 	# Install if needed
@@ -16,13 +16,13 @@ install:
 	#rustup default stable 
 
 lint:
-	cargo clippy --quiet
+	cd desc-stat && cargo clippy --quiet
 
 test:
-	cargo test --quiet
+	cd desc-stat && cargo test --quiet
 
 run:
-	cargo run
+	cd desc-stat && cargo run
 
 release:
 	cargo build --release

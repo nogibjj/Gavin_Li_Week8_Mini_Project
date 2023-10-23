@@ -1,11 +1,11 @@
 extern crate csv;
 
+use csv::ReaderBuilder;
 use std::error::Error;
 use std::fs::File;
-use csv::ReaderBuilder;
+use std::process::Command;
 use std::time::Instant;
 use sys_info::mem_info;
-use std::process::Command;
 
 fn main() -> Result<(), Box<dyn Error>> {
     let output = Command::new("ps")
@@ -61,7 +61,10 @@ fn main() -> Result<(), Box<dyn Error>> {
     let elapsed_time = end_time.duration_since(start_time);
     let mem_info = mem_info().unwrap();
 
-    println!("Memory Usage: {}%", mem_info.total.saturating_sub(mem_info.avail) as f32 / mem_info.total as f32 * 100.0);
+    println!(
+        "Memory Usage: {}%",
+        mem_info.total.saturating_sub(mem_info.avail) as f32 / mem_info.total as f32 * 100.0
+    );
     println!("Elapsed time: {:?}", elapsed_time);
     // println!("Memory usage: {} bytes", std::mem::size_of::<f64>());
 
