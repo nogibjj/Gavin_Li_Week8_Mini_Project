@@ -11,6 +11,7 @@ The purpose of this project is to translate a python data processing script into
 ## Result of the program
 
 
+## Result of 
 
 ![make_rslt](./resources/make_rslts.png)
 
